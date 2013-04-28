@@ -62,7 +62,12 @@ of the qbox.io calls, it sends our request onto ElasticSearch without interferin
 with it.  
 
 Since we want to use some data, we can use the faker library as well to create
-some data and put it into our qbox.io index.
+some data and put it into our qbox.io index.  We will need to get both the tire 
+and faker gems on our sytem if they are not there already.
+
+```bash
+gem install tire faker
+```
 
 Fire up IRB and require both tire and faker
 
