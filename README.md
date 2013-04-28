@@ -920,6 +920,12 @@ end
 results.total # => 13
 # add in our style as well
 hash[:style] = ["beret"]
+
+results = Hat.search page: hash[:page] || 1 do
+  query { string hash[:search] } if hash[:search].present?
+  filter :terms, style_list: hash[:style] if hash[:style].present?
+  filter :terms, color_list: hash[:color] if hash[:color].present?  
+end
 results.total #=> 2
 ```
 
@@ -1183,8 +1189,8 @@ end
 # => orange - 131
 # => green - 109
 ```
-We can use the same logic as with the current-stytles facet
-o update our model, controller, and view
+We can use the same logic as with the ```current-styles``` facet
+to update our model, controller, and view
 
 Edit app/models/hat.rb
 ```ruby
