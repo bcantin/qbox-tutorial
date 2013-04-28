@@ -13,13 +13,13 @@ head over to [qbox.io](http://qbox.io), sign up and get your API key.
 Once you have your api key, we can test that it is working by using curl from the
 terminal.
 
-```bash
+```shell
 curl http://api.qbox.io/YOUR-API-KEY
 ```
 
 create an index, and see if it exists.
 
-```bash
+```shell
 curl -XPUT http://api.qbox.io/YOUR-API-KEY/test_index
 # wait for a return
 curl http://api.qbox.io/YOUR-API-KEY/test_index
@@ -29,13 +29,13 @@ We can also view that our test_index was created from the [Dashboard](http://qbo
 
 We also can delete the index and verify that as well.
 
-```bash
+```shell
 curl -XDELETE http://api.qbox.io/YOUR-API-KEY/test_index
 ```
 
 Let's create a test_index, add some items, and verify that we can get them from qbox
 
-```bash
+```shell
 curl -XPUT http://api.qbox.io/YOUR-API-KEY/test_index
 curl -XPOST http://api.qbox.io/YOUR-API-KEY/test_index/product -d '{
   "name" : "Product Name",
@@ -48,6 +48,9 @@ curl -XPUT http://api.qbox.io/YOUR-API-KEY/test_index/product/my_custom_id -d '{
 }'
 # get our item with the custom id
 curl http://api.qbox.io/YOUR-API-KEY/test_index/product/my_custom_id
+
+# and let's destroy this index
+curl -XDELETE http://api.qbox.io/YOUR-API-KEY/test_index
 ```
 
 Using curl is nice, as most languages support some type of curl library. qbox.io
@@ -65,7 +68,7 @@ Since we want to use some data, we can use the faker library as well to create
 some data and put it into our qbox.io index.  We will need to get both the tire 
 and faker gems on our sytem if they are not there already.
 
-```bash
+```shell
 gem install tire faker
 ```
 
@@ -440,7 +443,7 @@ A sample application, Madhatter, is provided at [this repository](https://github
 The master branch is the finished application.  There is a before_search branch
 that you can use to follow along and add the functionality with this tutorial.
 
-```bash
+```shell
 git clone https://github.com/bcantin/madhatter.git
 cd madhatter
 # get the before_search branch
@@ -460,7 +463,7 @@ to your machine.
 Once that is done, we can get started.  We need to run a few commands to get
 ready.
 
-```bash
+```shell
 bundle install
 rake db:setup 
 rails server
@@ -481,7 +484,7 @@ gem 'tire'
 ```
 
 And run bundle install
-```bash
+```shell
 bundle install
 ```
 
@@ -511,7 +514,7 @@ class Hat < ActiveRecord::Base
 end
 ```
 Now let's jump into the rails console and see what we can do.
-```bash
+```shell
 rails console
 ```
 ```ruby
@@ -615,7 +618,7 @@ Much better!  We now can see that the style_list and color_list is being indexed
 Now let's update our controller and add some real searching!  If you had closed it,
 start up a rails server in another terminal.
 
-```bash
+```shell
 rails server
 ```
 
@@ -701,7 +704,7 @@ and it can help us with some nice convience pagination methods.  There is
 also a nice generator for us since we are using bootstrap.  From a terminal
 run the following generator.
 
-```bash
+```shell
 rails g kaminari:views bootstrap -e haml
 ```
 
