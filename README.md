@@ -33,21 +33,21 @@ We also can delete the index and verify that as well.
 curl -XDELETE http://api.qbox.io/YOUR-API-KEY/test_index
 ```
 
-Let's create a product_index, add some items, and verify that we can get them from qbox
+Let's create a test_index, add some items, and verify that we can get them from qbox
 
 ```bash
 curl -XPUT http://api.qbox.io/YOUR-API-KEY/test_index
-curl -XPOST http://api.qbox.io/YOUR-API-KEY/product_index/product -d '{
+curl -XPOST http://api.qbox.io/YOUR-API-KEY/test_index/product -d '{
   "name" : "Product Name",
   "price" : 24.99
 }'
 # add an item with a custom ID
-curl -XPUT http://api.qbox.io/YOUR-API-KEY/product_index/product/my_custom_id -d '{
+curl -XPUT http://api.qbox.io/YOUR-API-KEY/test_index/product/my_custom_id -d '{
   "name" : "Product Name 2",
   "price" : 20.99
 }'
 # get our item with the custom id
-curl http://api.qbox.io/YOUR-API-KEY/product_index/product/my_custom_id
+curl http://api.qbox.io/YOUR-API-KEY/test_index/product/my_custom_id
 ```
 
 Using curl is nice, as most languages support some type of curl library. qbox.io
