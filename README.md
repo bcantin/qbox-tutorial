@@ -432,8 +432,7 @@ As with the item results, by default we only get back the top 10 facets.
 
 We should have enough information to now add qbox.io to our Rails application.
 
-If you wish to destroy this index before moving on to our Rails app, you can run
-the command below.  Do this for any other index you may have left if you wish.
+Destroy the index we just created before moving on.
 
 ```ruby
 Tire.index('test_index').delete
@@ -563,7 +562,7 @@ And as before, Tire has a convience method to see how many total we have access 
 with this search.
 
 ```ruby
-hats.results.total # => 34
+hats.total # => 34
 # look at our first results hat
 hats.results.first
 # => <Item (Hat) created_at: "2013-04-27T12:34:14Z", description: "Autem aliquid.", name: "vel consequatur", price: "40.99", updated_at: "2013-04-27T12:34:14Z", id: "452", _score: 0.93521, _type: "hat", _index: "brad.cantin-hats", _version: nil, sort: nil, highlight: nil, _explanation: nil> 
@@ -606,7 +605,7 @@ the database and imported into our index on qbox.io.  Let's perform our search a
 ```ruby
 hats = Hat.search("vel")
 hats.results.count # => 10
-hats.results.total # => 34
+hats.total # => 34
 # same as before for the count and total as expected. 
 # Look at our first result and we get
 hats.results.first
@@ -740,7 +739,7 @@ results.total # => 34
 Good, we have a baseline of 34 items.  Add a filter on styles and it should narrow
 down the number of results we get back.
 ```ruby
-hash[:styles] = ['beret']
+hash[:style] = ['beret']
 ```
 Using the Tire DSL we can create a search:
 ```ruby
