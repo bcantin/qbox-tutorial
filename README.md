@@ -457,7 +457,7 @@ There are four main files that we will be updating
 * app/views/hats/index.html.haml
 * app/views/shared/_sidebar.html.haml
 
-Our application uses mysql as the database.  Please update the config/database.yml
+Our application uses sqlite3 as the database.  Please update the config/database.yml
 to your machine.
 Once that is done, we can get started.  We need to run a few commands to get
 ready.
